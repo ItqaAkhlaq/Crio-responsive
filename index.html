@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crio.Do: Project-based learning platform for developers</title>
+    <link href="output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="favicon.ico" rel="icon">
+    <style>
+        /* Custom CSS for carousel behavior */
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+        .carousel-item {
+            display: flex;
+            flex-direction: column;
+            scroll-snap-align: start;
+            width: 350px; /* Set fixed width */
+            height: 450px; /*Set fixed height  */
+            margin-right: 1rem;
+        }
+        .carousel::-webkit-scrollbar {
+            display: scroll;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- *********************************** Header ************************************ -->
+
+    <header>
+
+        <!--------------------- NavBar ---------------------->
+
+        <nav class="bg-[#2df8c5] w-screen min-h-11 cursor-pointer flex flex-col lg:flex-row items-center justify-between">
+            <img src="nav-left.png" alt="left-image" class="hidden lg:block" style="max-height: 54px;">
+            <div class="text-gray-800 flex flex-col xl:flex-row gap-1 text-sm items-center justify-center pl-4 pr-4 sm:text-base md:text-lg xl:py-2 xl:pl-28 xl:pr-28">
+                <p class="font-semibold">Time to Score Your Career Goals! | Avail exclusive benefits upto <span class="font-bold">₹1,20,000 | 11 Seats Left</span></p>
+            </div>
+            <img src="nav-right.png" alt="right-image" class="hidden lg:block" style="max-height: 54px;">
+        </nav>
+
+
+        <!--------------------- Panel ---------------------->
+
+        <div class="bg-white min-w-screen h-14 flex items-center justify-between px-6 md:h-16">
+
+            <!--------- Image --------->
+
+            <img class="xl:pr-60" src="Crio_Dark.png" alt="panel image" style="height:48px;">
+
+            <!--------- Menu List --------->
+
+            <div class="text-black font-medium font-serif hidden lg:flex lg:justify-between xl:flex 2xl:flex">
+                <p class="lg:mt-4 xl:pt-2 cursor-pointer">Programs</p>
+                <select name="Programs" class="hidden lg:flex lg:size-10 lg:mt-4 xl:mt-3 cursor-pointer mr-2">
+                    <options value="Programs">Programs</options>
+                </select>
+                <ul class="lg:flex xl:flex 2xl:flex lg:mt-4 xl:pt-2 cursor-pointer space-x-4">
+                    <li>Hire from Crio</li>
+                    <li>Projects</li>
+                    <li>Blog</li>
+                </ul>
+                <p class="lg:mt-4 xl:pt-2 ml-4 cursor-pointer">Placements</p>
+                <select name="Placements" class="hidden lg:flex lg:size-10 lg:mt-4 xl:mt-3 cursor-pointer ml-2">
+                    <options value="Placements">Placements</options>
+                </select>
+            </div>
+
+            <!--------- Menu --------->
+
+            <div class="flex md:hidden lg:hidden xl:flex">
+                <!-- Button to toggle menu -->
+                <button id="menu-toggle" class="block text-black">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!--------- Buttons --------->
+            
+            <div class="hidden md:flex lg:flex xl:flex">
+                <button class="bg-white text-black font-semibold size-auto ml-2 border-2 rounded-xl border-black px-4 pt-2 pb-2 sm:whitespace-nowrap hover:text-emerald-300 hover:border-hidden hover:bg-emerald-800">Sign in</button>
+                <button class="bg-yellow-300 text-black shadow-2xl shadow-yellow-300 hover:shadow-2xl hover:shadow-yellow-300 font-semibold size-auto ml-2 border-2 rounded-xl border-yellow-300 hover:bg-yellow-400 hover:border-hidden px-4 pt-2 pb-2 sm:whitespace-nowrap">Book Your Free Trial, Now</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===================================== 1st Section =============================================== -->
+
+        <div class="flex flex-col lg:flex-row">
+            <!------------------ Text --------------------->
+            <div class="flex-col pl-4 md:pl-14">
+                <div class="w-auto h-auto">
+                    <h1 class="text-black text-justify font-semibold text-3xl sm:text-4xl md:font-bold md:text-4xl lg:text-4xl lg:font-bold pt-11 xl:mt-10">
+                        Learn Like You Would At India’s Top Tech Companies.
+                    </h1>
+                    <p class="mt-6 text-gray-500 text-base sm:text-lg md:text-2xl xl:mt-10">
+                        Work-experience based learning programs to land your dream tech job
+                    </p>
+                    <div class="flex-col text-gray-500 mt-6 xl:mt-10 xl:text-xl">
+                        <p><span class="font-bold">Build</span> professional projects like the top 1% tech professionals.</p>
+                        <p><span class="font-bold">Master</span> the latest Fullstack/Backend/Automation tech with real work-ex.</p>
+                        <p><span class="font-bold">Crack</span> your dream role at the best tech companies.</p>
+                    </div>
+                </div>
+                <div class="h-auto w-auto">
+                    <div class="flex mt-5">
+                    <button class="border-hidden bg-emerald-900 text-emerald-300 rounded-full size-10 mt-5 hover:border-hidden hover:bg-green-300 hover:text-emerald-900">
+                        <i class="fa-solid fa-play hover:text-emerald-900"></i>
+                    </button>
+                    <p class="text-green-900 font-bold text-base sm:text-lg md:text-2xl mt-6 ml-5 hover:underline cursor-pointer">
+                        Upskill with Crio
+                    </p>
+                    </div>
+                    <div class="flex mt-5">
+                    <button class="bg-white text-black font-semibold size-auto ml-2 border-2 rounded-xl border-black px-4 pt-2 pb-2 sm:whitespace-nowrap hover:text-emerald-300 hover:border-hidden hover:bg-green-900 hover:static">
+                        Explore Our Programs
+                    </button>
+                    <button class="bg-yellow-300 text-black font-semibold size-auto ml-2 border-2 rounded-xl border-yellow-300 hover:bg-yellow-400 hover:border-hidden px-4 pt-2 pb-2 sm:whitespace-nowrap hover:static shadow-md shadow-yellow-300">
+                        Book Your Free Trial, Now
+                    </button>
+                    </div>
+                </div>
+                
+            </div>
+            <!------------------ Hero Image --------------------->
+            <div class="w-full lg:w-[50%]">
+                <img src="Homepage_Hero.webp" alt="hero image" class="pt-10 md:p-10 mx-auto">
+            </div>
+        </div>
+        <!----------------------- Percentage section ------------------------->
+        <div class="flex flex-wrap md:flex-nowrap mt-4 ml-10 size-auto">
+            <div class="size-36 bg-sky-100 text-center p-4 rounded-none md:rounded-l-2xl"><span class="font-bold text-lg sm:text-xl md:text-3xl">95% </span> placed within 9 months of graduation</div>
+            <div class="h-36 w-0.5 bg-gray-300 hidden md:block"></div>
+            <div class="size-36 bg-sky-100 text-center p-4"><span class="font-bold text-lg sm:text-xl md:text-3xl">10 LPA </span>average dream job CTC</div>
+            <div class="h-36 w-0.5 bg-gray-300 hidden md:block"></div>
+            <div class="size-36 bg-sky-100 text-center p-4"><span class="font-bold text-lg sm:text-xl md:text-3xl">21 LPA </span>average super-dream job CTC</div>
+            <div class="h-36 w-0.5 bg-gray-300 hidden md:block"></div>
+            <div class="size-36 bg-sky-100 text-center p-4"><span class="font-bold text-lg sm:text-xl md:text-3xl">1000+ </span>Hiring Partners</div>
+            <div class="h-36 w-0.5 bg-gray-300 hidden md:block"></div>
+            <div class="size-36 bg-sky-100 text-center p-4 rounded-none md:rounded-r-2xl"><span class="font-bold text-lg sm:text-xl md:text-3xl">81% </span>Average Salary Hike</div>
+        </div>
+
+
+        <!-- ===================================== 2nd Section =============================================== -->
+
+        <div class="p-16">
+            <div class="items-center text-center justify-center px-4 sm:px-8 lg:px-28 xl:px-56 mb-10">
+                <h2 class="font-bold text-black text-4xl mb-10">Modern Work Experience-Based Learning Approach</h2>
+                <p class="text-gray-500">
+                    At Crio, you learn and grow exactly how you would on a real job. You will start from the fundamentals, receive support from our mentors and community, and 
+                    <span class="font-bold text-xl text-black">build your way to the top</span> - through professional work-like Full-stack and Backend web development projects.
+                </p>
+            </div>
+
+            <div class="container mx-auto px-4 mt-20">
+                <div class="carousel grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item bg-sky-50 p-6 rounded-2xl shadow-xl" style="height: 450px; width: 400px;">
+                        <div class="flex justify-center mb-6">
+                            <img src="Container image 1.png" alt="Project Image" style="height: 150px; width:150px;">
+                        </div>
+                        <h2 class="text-xl font-semibold mb-2 pl-4">Work like Frontend Developers at AirBnB</h2>
+                        <p class="mb-4 pl-4">Build a highly responsive frontend for a travel app.</p>
+                        <div class="flex-col px-6">
+                            <div class="flex m-4">
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">HTML</div>
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">CSS</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">Bootstrap</div>
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">React JS</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel Item 2 -->
+                    <div class="carousel-item bg-sky-50 p-6 rounded-2xl shadow-xl" style="height: 450px; width: 400px;">
+                        <div class="flex justify-center mb-6">
+                            <img src="container image 2.png" alt="Project Image" style="height: 150px; width:150px;">
+                        </div>
+                        <h2 class="text-xl font-semibold mb-2 pl-4">Work like a senior developer at Flipkart</h2>
+                        <p class="mb-4 pl-4">Experience working on a live distributed system in AWS.</p>
+                        <div class="flex-col px-4">
+                            <div class="flex mt-4 mr-4 ml-1 mb-4">
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">Micrpservices</div>
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">Kafka</div>
+                            </div>
+                            <div class="flex gap-2 pl-4">
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">Scalling</div>
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">Cloud</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel Item 3 -->
+                    <div class="carousel-item bg-sky-50 p-6 rounded-2xl shadow-xl" style="height: 450px; width: 400px;">
+                        <div class="flex justify-center mb-6">
+                            <img src="container image 5.png" alt="Project Image" style="height: 150px; width:150px;">
+                        </div>
+                        <h2 class="text-xl font-semibold mb-2 pl-4">Work like Backend Developers at Zomato</h2>
+                        <p class="mb-4 pl-4">Build a high-scale distribuuted web backend for a food ordering app.</p>
+                        <div class="flex-col px-6">
+                            <div class="flex m-2">
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">MongoDB</div>
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">Java</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">Spring Boot</div>
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">Redis</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel Item 4 -->
+                    <div class="carousel-item bg-sky-50 p-6 rounded-2xl shadow-xl" style="height: 450px; width: 400px;">
+                        <div class="flex justify-center mb-6">
+                            <img src="container image 6.png" alt="Project Image" style="height: 150px; width:150px;">
+                        </div>
+                        <h2 class="text-xl font-semibold mb-2 pl-4">Experience Building a Google News like app</h2>
+                        <p class="mb-4 pl-4">Build a fully functional news aggregator like google news.</p>
+                        <div class="flex-col px-6">
+                            <div class="flex m-4">
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">HTML</div>
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">CSS</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">Rest API</div>
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">Flexbox</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel Item 5 -->
+                    <div class="carousel-item bg-sky-50 p-6 rounded-2xl shadow-xl" style="height: 450px; width: 400px;">
+                        <div class="flex justify-center mb-6">
+                            <img src="container image 7.png" alt="Project Image" style="height: 150px; width:150px;">
+                        </div>
+                        <h2 class="text-xl font-semibold mb-2 pl-4">Work like Frontend Developers at AirBnB</h2>
+                        <p class="mb-4 pl-4">Build a highly responsive frontend for a travel app.</p>
+                        <div class="flex-col px-6">
+                            <div class="flex m-4">
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">HTML</div>
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">CSS</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">Bootstrap</div>
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">React JS</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel Item 6 -->
+                    <div class="carousel-item bg-sky-50 p-6 rounded-2xl shadow-xl" style="height: 450px; width: 400px;">
+                        <div class="flex justify-center mb-6">
+                            <img src="Container image 1.png" alt="Project Image" style="height: 150px; width:150px;">
+                        </div>
+                        <h2 class="text-xl font-semibold mb-2 pl-4">Work like an Engineer at Zerodha</h2>
+                        <p class="mb-4 pl-4">Build a tool to analyze an investment portfolio.</p>
+                        <div class="flex-col px-6">
+                            <div class="flex m-4">
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">OOP</div>
+                                <div class="border-2 border-black px-3 m-2 rounded-2xl text-sm">JSON</div>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">Gradle</div>
+                                <div class="border-2 border-black px-3 rounded-2xl text-sm">Rest API</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+
+
+        <!-- ======================================== 3rd Section ======================================= -->
+
+        <!---------------- 1st div ------------------->
+        <div class="items-center text-center justify-center px-4 mb-10 lg:px-28 xl:px-40">
+            <h2 class="font-bold text-black text-2xl px-2 mb-4 lg:text-4xl lg:px-10 lg:mb-10">An All-Round Effective Way To Supercharge Your Tech Career</h2>
+            <p class="text-gray-500 px-4 lg:px-24">
+                <span class="font-bold text-lg lg:text-xl text-black">Hands-on, work experience-based learning</span> is at the heart of everything you do at Crio. 
+                Build software projects like the top 1% Tech Professionals and <span class="font-bold text-lg lg:text-xl text-black">learn all the skills</span> you need to 
+                <span class="font-bold text-lg lg:text-xl text-black">land the best</span> Fullstack/Backend Developers or SDET Jobs.
+            </p>
+        </div>
+
+        <!---------------- 2nd div ------------------->
+        <div class="px-4 pt-10 pb-6 flex flex-col gap-10 lg:flex-row lg:px-28">
+            <div class="h-96 w-full bg-sky-50 rounded-3xl flex-col p-8 xl:w-96">
+                <img src="box 1.png" alt="box 1 image" class="h-20 w-20">
+                <h2 class="text-lg xl:text-xl mt-4 font-semibold">Learn by Working like Tech Professionals</h2>
+                <p class="text-gray-400 mt-4 text-sm xl:text-lg font-semibold">Learn Full Stack Development, Backend Development, QA Automation through an immersive project-based curriculum focused on practical developer skills and real-world scenarios.</p>
+            </div>
+            <div class="h-96 w-full bg-sky-50 rounded-3xl flex-col p-8 xl:w-96">
+                <img src="box 2.png" alt="box 2 image" class="h-20 w-20">
+                <h2 class="text-lg xl:text-xl mt-8 font-semibold">Gain Work-ex on Problems Given by Real Tech Companies</h2>
+                <p class="text-gray-400 mt-4 text-sm xl:text-lg font-semibold">Gain the work experience of building professional software products for India’s top tech companies like CRED, Playment, Jumbotail, Vicara, and others.</p>
+            </div>
+            <div class="h-96 w-full bg-sky-50 rounded-3xl flex-col p-8 xl:w-96">
+                <img src="box 3.png" alt="box 3 image" class="h-20 w-20">
+                <h2 class="text-lg xl:text-xl mt-8 font-semibold">Learn From Seasoned Industry Professionals in Real Time</h2>
+                <p class="text-gray-400 mt-4 text-sm xl:text-lg font-semibold">Participate in activity-based live working sessions facilitated by industry mentors from companies like Microsoft, Flipkart, Nilenso.</p>
+            </div>
+        </div>
+
+        <!---------------- 3rd div ------------------->
+        <div class="px-4 pb-20 flex flex-col gap-10 lg:flex-row lg:px-28">
+            <div class="h-96 w-full bg-sky-50 rounded-3xl flex-col p-8 xl:w-96">
+                <img src="box 4.png" alt="box 4 image" class="h-20 w-20">
+                <h2 class="text-lg xl:text-xl mt-4 font-semibold">Get career support to break through into ambitious roles</h2>
+                <p class="text-gray-400 mt-4 text-sm xl:text-lg font-semibold">Be prepared for every interview and land exciting development jobs with structured planning and personalised guidance & support from Crio career coaches.</p>
+            </div>
+            <div class="h-96 w-full bg-sky-50 rounded-3xl flex-col p-8 xl:w-96">
+                <img src="box 5.png" alt="box 5 image" class="h-20 w-20">
+                <h2 class="text-lg xl:text-xl mt-4 font-semibold">Build a GitHub portfolio that impresses recruiters</h2>
+                <p class="text-gray-400 mt-4 text-sm xl:text-lg font-semibold">Go beyond just certificates with a Crio verified project portfolio on GitHub and impress any recruiter at a product based company with your skills and experience.</p>
+            </div>
+            <div class="h-96 w-full bg-sky-50 rounded-3xl flex-col p-8 xl:w-96">
+                <img src="box 6.png" alt="box 6 image" class="h-20 w-20">
+                <h2 class="text-lg xl:text-xl mt-8 font-semibold">Stand out at interviews with real proof of work</h2>
+                <p class="text-gray-400 mt-6 text-sm xl:text-lg font-semibold">Validate your learnings and let your skills shine with a work experience certificate that makes you stand out at interviews.</p>
+            </div>
+        </div>
+
+        <!-- ------------------- End of 3rd Section ----------------------- -->
+        <div class="mt-10 mb-28 flex justify-center">
+            <button class="bg-yellow-300 text-black shadow-2xl shadow-yellow-300 hover:shadow-2xl hover:shadow-yellow-300 font-semibold text-2xl h-16 w-full border-2 rounded-xl border-yellow-300 hover:bg-yellow-400 hover:border-hidden px-4 pt-2 pb-2 sm:whitespace-nowrap lg:w-96 lg:ml-2">Book Your Free Trial, Now!</button>
+        </div>
+
+
+        <!-- ======================================== 4th Section ======================================= -->
+
+        <div class="items-center text-center justify-center px-4 lg:px-56 mb-10">
+            <h2 class="font-bold text-black text-2xl px-2 mb-4 lg:text-4xl lg:px-10 lg:mb-10">Immersive Work Ex-Based Programs To Crack Jobs At The Fastest-Growing Companies</h2>
+            <p class="text-gray-500 px-4 lg:px-24">Learn the skills you need to land a Fullstack/Backend Developers or SDET Job at a top product company.
+                <span class="font-bold text-lg lg:text-xl text-black">Gain the work experience of professional developers</span> working at Amazon, Netflix, AirBnB, Flipkart, and more, with continuous guidance and support from our mentors.
+            </p>
+        </div>
+        
+        
+
+        <div class="w-screen mobile:w-[auto] sm:w-[600px] md:w-auto lg:w-[950px] xl:w-[1180px] h-auto xl:h-[800px] mr-10 ml-28 mb-20 mobile:ml-6 mobile:mr- 6 rounded-[20px] bg-[#004246] px-4 md:px-6 py-8">
+            <div class="flex flex-col items-center justify-center p-6">
+                <div class="w-full text-center mb-8">
+                    <img src="Fellowship.png" alt="fellowship image" class="mx-auto mb-4" style="height:78px; width: 78px;">
+                    <h2 class="text-emerald-300 text-xl md:text-2xl font-bold mb-4">Fellowship Program in Software Development</h2>
+                    <p class="text-base md:text-lg font-semibold text-white">Learn with real work experience and get guaranteed placement as a Full-Stack or Backend Developer at product-based companies.</p>
+                </div>
+
+                <div class="flex flex-col md:flex-row bg-[#013437] rounded-xl h-auto w-full mt-5 py-5 px-4 md:px-10 gap-4 md:gap-20">
+                    <div class="flex-col">
+                        <div class="flex items-center gap-4 mb-4 md:mb-0">
+                            <button class="border-none bg-emerald-300 text-emerald-900 rounded-full p-2 hover:cursor-auto">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <p class="text-white font-medium">Project-led MERN or Backend Specialisation</p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-4">
+                            <button class="border-none bg-emerald-300 text-emerald-900 rounded-full p-2 hover:cursor-auto">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <p class="text-white font-medium">Externships with Real Tech Companies</p>
+                        </div>
+                    </div>
+                    <div class="flex-col">
+                        <div class="flex items-center gap-4 mb-4 md:mb-0">
+                            <button class="border-none bg-emerald-300 text-emerald-900 rounded-full p-2 hover:cursor-auto">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <p class="text-white font-medium">DS, Algo, and System Design curriculum</p>
+                        </div>
+                        <div class="flex items-center gap-4 mt-4">
+                            <button class="border-none bg-emerald-300 text-emerald-900 rounded-full p-2 hover:cursor-auto">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <p class="text-white font-medium">Guaranteed Placement in top dev roles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col xl:flex-row items-center justify-center gap-4 xl:gap-8 mt-8">
+                    <div class="flex-col bg-[#013437] rounded-xl h-auto md:h-[200px] w-full md:w-[500px] p-8">
+                        <h2 class="text-emerald-300 text-lg font-bold mb-4">Full Stack Specialisation</h2>
+                        <p class="text-lg font-bold text-white mb-2">7 Professional Projects to learn with real work-experience.</p>
+                        <p class="font-semibold text-white">(MongoDB, Express, React, NodeJS)</p>
+                    </div>
+                    <div class="text-center mt-4 md:mt-0">
+                        <button class="border-none bg-emerald-300 text-emerald-900 rounded-full text-2xl font-bold px-4 py-2">
+                            OR
+                        </button>
+                    </div>
+                    <div class="flex-col bg-[#013437] rounded-xl h-auto md:h-[200px] w-full md:w-[500px] p-8">
+                        <h2 class="text-emerald-300 text-lg font-bold mb-4">Backend Specialisation</h2>
+                        <p class="text-lg font-bold text-white mb-2">5 Professional projects to learn with real work-experience.</p>
+                        <p class="font-semibold text-white">(Core Java and Spring Boot)</p>
+                    </div>
+                </div>
+                <div class="flex flex-col xl:flex-row items-center justify-center gap-4 xl:gap-20 mt-8">
+                    <button class="text-white text-xl md:text-2xl font-semibold h-12 md:h-16 w-full md:w-96 border-2 rounded-xl border-white px-4 py-2 hover:text-emerald-300 hover:border-hidden hover:bg-emerald-900">
+                        Learn More
+                    </button>
+                    <button class="bg-[#FFD500] text-black shadow-2xl shadow-[#FFD500] font-semibold text-xl md:text-2xl h-12 md:h-16 w-full md:w-96 border-2 rounded-xl border-yellow-300 hover:bg-yellow-400 px-4 py-2">
+                        Apply Now!
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!-- ======================================== 5th Section ======================================= -->
+
+        <div class="bg-[#2df8c5] ml-2 sm:ml-28 mr-2 sm:mr-28 my-20 rounded-3xl h-auto sm:h-[320px] px-4 sm:px-20 pt-6 sm:pt-10 pb-8 sm:pb-16 flex flex-col sm:flex-row items-center justify-between">
+            <div class="flex flex-col items-center sm:items-start text-center sm:text-left mb-6 sm:mb-0">
+                <h2 class="text-[28px] md:text-[36px] lg:text-[48px] font-extrabold text-black">Have any further questions?</h2>
+                <button class="text-black text-xl md:text-2xl font-semibold mt-4 sm:mt-8 border-2 rounded-xl border-black px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 sm:whitespace-nowrap hover:text-emerald-300 hover:border-hidden hover:bg-emerald-900 hover:static">
+                    Chat with Us 
+                </button>
+            </div>
+            <img src="Chat.png" alt="chat image" class="pr-0 sm:pr-10 mt-6 sm:mt-0 max-h-[120px] md:max-h-[240px] lg:max-h-[240px] xl:max-h-[240px] 2xl:max-h-[240px] w-auto">
+        </div>
+        
+        
+        
+
+        <!-- ======================================== 6th Section ======================================= -->
+        <div class="px-6 sm:px-12 md:px-32 lg:px-56 mb-10 text-center">
+            <h2 class="font-bold text-3xl md:text-4xl lg:text-5xl text-black mb-6 md:mb-8 lg:mb-10">Real Work Experience, Real Project-Based Learning With Crio</h2>
+            <p class="text-lg md:text-xl lg:text-2xl text-gray-400 mb-6 md:mb-8 lg:mb-10">The best way to learn a skill is by applying what you learn in real scenarios. At Crio, we take it a notch higher by giving you actual work experience-based learning. So, instead of just watching tutorials, you actually experience building real products like professional engineers.</p>
+            <p class="text-lg md:text-xl lg:text-2xl text-gray-400">Basically, how a real professional working in a leading product company would grow their career.</p>
+        </div>
+        
+        
+        <div class="my-10 flex justify-center pb-10">
+            <img src="Table-Desktop.png" alt="table-desktop" class="w-screen sm:w-[700px] h-auto">
+        </div>
+        
+        
+        <div class="my-10 flex justify-center pb-10">
+            <button class="bg-[#FFD500] text-black shadow-[#ffd500] shadow-2xl hover:shadow-2xl font-semibold text-2xl h-16 w-96 ml-2 border-2 rounded-xl border-yellow-300 hover:bg-yellow-400 hover:border-hidden px-4 pt-2 pb-2 sm:whitespace-nowrap">Book Your Free Trial, Now!</button>
+        </div>
+        
+
+        <!-- ======================================== 7th Section ======================================= -->
+
+        <div class="bg-[#2df8c5] min-h-screen lg:h-auto lg:min-h-[1200px] w-screen">
+            <!-- Hide 'In The News' section on small screens -->
+            <div class="mobile:hidden bg-white min-h-screen lg:h-auto md:min-h-[900px] md:flex-row md:rounded-b-[240px] items-center justify-center">
+                    
+                <div class="my-10 flex justify-center pb-10">
+                    <h2 class="font-bold text-4xl">In The News</h2>
+                </div>
+                    
+                <div class="sm:flex sm:items-center sm:justify-items-center lg:flex-row flex items-center justify-center">
+                    <div class="min-h-[460px] w-[240px] p-6 flex-col bg-sky-50 rounded-3xl hover:cursor-pointer hover:bg-[#2df8c5]">
+                            <img src="Highlight.png" alt="highlight image" style="width:185px; height: 192px;">
+                            <p class="text-gray-400 font-bold text-xl mt-6 hover:text-black">Featured on Yourstory's list of startups with groundbreaking ideas that are creating a deep impact.</p>
+                    </div>
+                    <div class="flex-col mt-16 md:ml-6">
+                            <div class="min-h-44 w-[300px] md:w-[500px] p-8 mb-6 bg-sky-50 rounded-3xl hover:cursor-pointer hover:bg-[#2df8c5]">
+                                <img src="Yourstory-OG.png" alt="yourstory" style="height:40px; width:100px;">
+                                <p class="text-gray-400 font-bold text-xl mt-6 hover:text-black">“This Binny Bansal-backed startup uses real-world problems to upskill developers”</p>
+                            </div>
+                            <div class="min-h-44 w-[300px] md:w-[500px] p-8 mb-6 bg-sky-50 rounded-3xl hover:cursor-pointer hover:bg-[#2df8c5]">
+                                <img src="IndianExpress-OG.png" alt="yourstory" style="height:15px; width:150px;">
+                                <p class="text-gray-400 font-bold text-xl mt-10 hover:text-black">“Bengaluru-based start-up enables developers to learn in a work-like, virtual environment”</p>
+                            </div>
+                            <div class="min-h-44 w-[300px] md:w-[500px] p-8 mb-6 bg-sky-50 rounded-3xl hover:cursor-pointer hover:bg-[#2df8c5]">
+                                <img src="EconomicTimes-Black.png" alt="yourstory" style="height:14px; width:150px;">
+                                <p class="text-gray-400 font-bold text-xl mt-10 hover:text-black">“Learning platform Crio raises $1 M in funding led by Binny Bansal, Udaan founders”</p>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- =============================== Footer ============================ -->
+            <div class="flex-wrap mt-14 pl-20 mobile:pl-6 pr-20 pt-20 pb-20 bg-[#2df8c5] w-screen">
+                <div class="flex mobile:flex-col sm:md:flex-col lg:flex-row xl:flex-row 2xl:flex-row">
+                    <div class="flex mobile:flex-wrap">
+                        <div class="flex-col h-[auto] md:h-[420px] w-full md:w-[300px]">
+                            <img src="Crio_Dark.png" alt="crio-image" style="height: 60px; width: 220px;">
+                            <div class="flex gap-2 mt-8">
+                                <img src="Home.png" alt="home-image" style="height: 20px; width: 20px;">
+                                <p class="text-black text-lg font-medium">175 & 176, Bannerghatta Main Rd, Dollars Colony, Bengaluru, Karnataka 560076, India</p>
+                            </div>
+                            <div class="flex gap-2 mt-4">
+                                <img src="comments.png" alt="home-image" style="height: 20px; width: 20px;">
+                                <p class="text-black text-lg font-medium">Customer Queries <span class="underline hover:no-underline hover:cursor-pointer">support@criodo.com</span></p>
+                            </div>
+                            <div class="flex gap-2 mt-4">
+                                <img src="queries.png" alt="home-image" style="height: 20px; width: 20px;">
+                                <p class="text-black text-lg font-medium">General Enquiries <span class="underline hover:no-underline hover:cursor-pointer">ping@criodo.com</span></p>
+                            </div>
+                        </div>
+            
+                        <div class="flex-col h-[auto] md:h-[420px] w-full md:w-[300px] pt-8 lg:ml-20">
+                            <h2 class="text-black text-xl font-semibold hover:cursor-pointer">COMMUNITY PROGRAMS</h2>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">#IBelieveInDoing Challenge</p>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Crio Winter of Doing</p>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Crio Project Hub</p>
+                        </div>
+                    </div>
+            
+                    <div class="flex mobile:flex-wrap">
+                        <div class="flex-col h-[auto] md:h-[420px] w-full md:w-[300px] pt-8">
+                            <h2 class="text-black text-xl font-semibold hover:cursor-pointer">CAREER PROGRAMS</h2>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Fellowship Program in Software Development</p>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Fellowship Program in QA Automation (SDET)</p>
+                            <h2 class="text-black text-xl mt-4 font-semibold hover:cursor-pointer">FOR BUSINESS</h2>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Hire from Crio</p>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Crio Onboard</p>
+                        </div>
+            
+                        <div class="flex-col h-[auto] md:h-[420px] w-full md:w-[300px] pt-8 lg:ml-20">
+                            <h2 class="text-black text-xl font-semibold hover:cursor-pointer">CRIO</h2>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Placement Report</p>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Success Stories</p>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">About</p>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Blog</p>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Terms of Use</p>
+                            <p class="text-black text-lg font-normal hover:cursor-pointer">Privacy Policy</p>
+                        </div>
+                    </div>
+
+                </div>
+            
+                <div class="bg-gray-500 h-[1px] w-full mt-6"></div>
+            
+                <div class="mobile:flex-col sm:flex md:flex lg:flex justify-between sm:mt-4">
+                        <p class="font-medium">Copyright © 2024 Crio. All rights reserved.</p>
+                        <div class="flex gap-3 text-4xl hover:cursor-pointer">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <i class="fa-brands fa-square-youtube"></i>
+                            <i class="fa-brands fa-square-instagram"></i>
+                            <i class="fa-brands fa-square-twitter"></i>
+                            <i class="fa-brands fa-square-facebook"></i>
+                        </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+    </main>
+
+</body>
+</html>
